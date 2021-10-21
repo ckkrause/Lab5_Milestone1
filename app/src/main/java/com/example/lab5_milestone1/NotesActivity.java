@@ -2,7 +2,9 @@ package com.example.lab5_milestone1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,10 +21,13 @@ public class NotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("com.example.lab5_milestone1", Context.MODE_PRIVATE);
+        String usernameKey = sharedPreferences.getString("username","");
+
         welcomeText = (TextView) findViewById(R.id.welcomeTextView);
-        Intent intent = getIntent();
-        String str = intent.getStringExtra("message");
-        welcomeText.setText("Hello " + str + "!");
+        //Intent intent = getIntent();
+        //String str = intent.getStringExtra("message");
+        welcomeText.setText("Hello " + usernameKey + "!");
     }
 
     public void showPopup(View v) {
@@ -48,8 +53,8 @@ public class NotesActivity extends AppCompatActivity {
 
     public void goToMainActivity() {
         Intent openMainActivity = new Intent(this, MainActivity.class);
-        openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-        startActivityIfNeeded(openMainActivity, 0);
-        finish();
+        SharedPreferences sharedPreferences = getSharedPreferences("com.example.lab5_milestone1", Context.MODE_PRIVATE);
+        sharedPreferences.edit().remove("username").apply();
+        startActivity(openMainActivity);
     }
 }
