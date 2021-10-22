@@ -17,15 +17,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="3dp"-->
+<!--        android:layout_marginEnd="3dp"-->
+<!--        android:layout_marginBottom="1dp"-->
+<!--        android:onClick="showPopup"-->
+<!--        android:src="@drawable/ic_baseline_more_vert_24"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/NotesList"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <ListView
+        android:id="@+id/NotesList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="3dp"
-        android:onClick="showPopup"
-        android:src="@drawable/ic_baseline_more_vert_24"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="top"
+        />
+<!--        app:layout_constraintTop_toBottomOf="@+id/imageButton"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
